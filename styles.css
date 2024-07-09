@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 2s ease-in-out;
+    z-index: 2;
+    position: relative;
+}
+
+.card h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 15px;
+    animation: textGlow 1.5s infinite;
+}
+
+.card p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(255, 255, 255, 0.6),
+                     0 0 30px rgba(255, 105, 180, 0.4),
+                     0 0 40px rgba(255, 105, 180, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+                     0 0 30px rgba(255, 255, 255, 0.7),
+                     0 0 40px rgba(255, 105, 180, 0.5),
+                     0 0 50px rgba(255, 105, 180, 0.3);
+    }
+}
+
+.heart {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 108px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 20px;
+    z-index: -1;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 180px;
+    border-radius: 60px 60px 0 0;
+    background: #ff6f61;
+}
+
+.heart:before {
+    left: 120px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25%, 75% {
+        transform: scale(1.1);
+    }
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.stars::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: url('https://raw.githubusercontent.com/Khronosst/stars-effect/main/star.png') no-repeat;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    animation: starfall 3s infinite;
+    opacity: 0.7;
+}
+
+@keyframes starfall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.venus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Symbol_venus_female.svg/1200px-Symbol_venus_female.svg.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.kanopus-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
